@@ -1,0 +1,147 @@
+/* From Uiverse.io by KhaledMatalkah - Modified for HexaCode */
+.cube-container {
+  width: 150px;
+  height: 150px;
+  perspective: 600px;
+  margin: 0 auto;
+}
+
+@media (min-width: 640px) {
+  .cube-container {
+    width: 180px;
+    height: 180px;
+    margin: 0 auto;
+  }
+}
+
+@media (min-width: 1024px) {
+  .cube-container {
+    width: 220px;
+    height: 220px;
+    margin: 0 auto;
+  }
+}
+
+.cube {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  animation: rotate 8s infinite linear;
+}
+
+.face {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  background: transparent;
+  opacity: 0.9;
+  border: 2px solid #85f666;
+  box-shadow: 0 0 60px rgba(133, 246, 102, 0.8);
+}
+
+@media (min-width: 640px) {
+  .face {
+    width: 180px;
+    height: 180px;
+    box-shadow: 0 0 70px rgba(133, 246, 102, 0.8);
+  }
+}
+
+@media (min-width: 1024px) {
+  .face {
+    width: 220px;
+    height: 220px;
+    box-shadow: 0 0 80px rgba(133, 246, 102, 0.8);
+  }
+}
+
+.front {
+  transform: translateZ(75px);
+}
+
+.back {
+  transform: rotateY(180deg) translateZ(75px);
+}
+
+.right {
+  transform: rotateY(90deg) translateZ(75px);
+}
+
+.left {
+  transform: rotateY(-90deg) translateZ(75px);
+}
+
+.top {
+  transform: rotateX(90deg) translateZ(75px);
+}
+
+.bottom {
+  transform: rotateX(-90deg) translateZ(75px);
+}
+
+@media (min-width: 640px) {
+  .front {
+    transform: translateZ(90px);
+  }
+  
+  .back {
+    transform: rotateY(180deg) translateZ(90px);
+  }
+  
+  .right {
+    transform: rotateY(90deg) translateZ(90px);
+  }
+  
+  .left {
+    transform: rotateY(-90deg) translateZ(90px);
+  }
+  
+  .top {
+    transform: rotateX(90deg) translateZ(90px);
+  }
+  
+  .bottom {
+    transform: rotateX(-90deg) translateZ(90px);
+  }
+}
+
+@media (min-width: 1024px) {
+  .front {
+    transform: translateZ(110px);
+  }
+  
+  .back {
+    transform: rotateY(180deg) translateZ(110px);
+  }
+  
+  .right {
+    transform: rotateY(90deg) translateZ(110px);
+  }
+  
+  .left {
+    transform: rotateY(-90deg) translateZ(110px);
+  }
+  
+  .top {
+    transform: rotateX(90deg) translateZ(110px);
+  }
+  
+  .bottom {
+    transform: rotateX(-90deg) translateZ(110px);
+  }
+}
+
+.cube-container:hover .cube {
+  animation-play-state: paused;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotateX(0) rotateY(0) rotateZ(0);
+  }
+
+  100% {
+    transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg);
+  }
+}

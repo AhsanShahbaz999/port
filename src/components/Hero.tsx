@@ -2,8 +2,7 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Handshake, Github, Linkedin } from "lucide-react";
-
-import profileImage from "@/assets/Hexa.jpeg";
+import Cube from "@/components/Cube";
 
 const Hero = () => {
   const stats = [
@@ -21,7 +20,7 @@ const Hero = () => {
   return (
     <section id="hero" className="min-h-screen flex items-center justify-center pt-32 sm:pt-36 md:pt-32 lg:pt-28 xl:pt-24 px-4 sm:px-6 bg-portfolio-bg relative z-10">
       <div className="container mx-auto max-w-7xl">
-        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+        <div className="grid lg:grid-cols-2 gap-4 lg:gap-3 items-center">
           {/* Left Content */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
@@ -52,7 +51,7 @@ const Hero = () => {
               className="-mt-1 sm:-mt-2"
             >
               <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight mt-1 sm:mt-2">
-                <span className="bg-gradient-to-r from-green-400 via-cyan-400 to-green-300 bg-clip-text text-transparent">Blockchain Developers</span>
+                <span className="bg-gradient-to-r from-[#85f666] via-[#a5ff86] to-[#65e646] bg-clip-text text-transparent">Blockchain Developers</span>
               </h1>
             </motion.div>
 
@@ -142,15 +141,15 @@ const Hero = () => {
             </motion.div>
           </motion.div>
 
-          {/* Right Content - Profile Image */}
+          {/* Right Content - 3D Cube */}
           <motion.div
             initial={{ opacity: 0, x: 50, scale: 0.8 }}
             whileInView={{ opacity: 1, x: 0, scale: 1 }}
             transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
             viewport={{ once: true }}
-            className="relative flex justify-center lg:justify-end order-1 lg:order-2 z-10"
+           className="relative flex justify-center lg:justify-center order-1 lg:order-2 z-10"
           >
-            <div className="relative z-10">
+            <div className="relative z-10 overflow-visible w-fit mx-auto lg:mx-0">
               {/* Glow Effect */}
               <motion.div
                 animate={{ 
@@ -163,9 +162,10 @@ const Hero = () => {
                   ease: "easeInOut"
                 }}
                 className="absolute inset-0 bg-gradient-glow rounded-2xl sm:rounded-3xl blur-xl opacity-50 z-0"
+                style={{ width: 'fit-content', height: 'fit-content' }}
               />
               
-              {/* Main Image Container */}
+              {/* Cube Container */}
               <motion.div
                 animate={{ y: [0, -10, 0] }}
                 transition={{ 
@@ -173,38 +173,10 @@ const Hero = () => {
                   repeat: Infinity,
                   ease: "easeInOut"
                 }}
-                className="relative w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 rounded-2xl sm:rounded-3xl overflow-hidden bg-gradient-card border border-border/20 z-10"
+                className="relative z-10 flex items-center justify-center"
               >
-                <img
-                  src={profileImage}
-                  alt=""
-                  className="w-full h-full object-cover relative z-10"
-                />
-                
-                {/* Overlay gradient */}
-                <div className="absolute inset-0 bg-gradient-to-t from-portfolio-bg/20 to-transparent z-10" />
+                <Cube />
               </motion.div>
-
-              {/* Floating Elements */}
-              {/* <motion.div
-                animate={{ 
-                  y: [0, -20, 0],
-                  rotate: [0, 10, 0]
-                }}
-                transition={{ 
-                  duration: 5,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                  delay: 1
-                }}
-                className="absolute -top-6 -right-6 w-16 h-16 sm:w-18 sm:h-18 md:w-20 md:h-20 bg-gradient-primary rounded-2xl flex items-center justify-center shadow-glow z-20"
-                style={{ 
-                  zIndex: 20,
-                  position: 'absolute'
-                }}
-              >
-                
-              </motion.div> */}
             </div>
           </motion.div>
         </div>

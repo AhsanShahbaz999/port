@@ -164,3 +164,176 @@
     display: flex;
   }
 }
+
+/* Light Theme Variables */
+@layer base {
+  :root[data-theme="light"] {
+    /* Light Theme Colors - Modern, clean light theme */
+    --background: 0 0% 99%;             /* Very light background */
+    --foreground: 0 0% 8%;              /* Almost black text */
+    
+    --card: 0 0% 100%;                  /* Pure white card background */
+    --card-foreground: 0 0% 8%;         /* Card text */
+    
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 8%;
+    
+    --secondary: 0 0% 97%;              /* Light gray secondary cards */
+    --secondary-foreground: 0 0% 15%;
+    
+    --muted: 0 0% 96%;                  /* Very light muted backgrounds */
+    --muted-foreground: 0 0% 45%;       /* Medium gray muted text */
+    
+    --accent-foreground: 0 0% 100%;
+    
+    --destructive-foreground: 0 0% 100%;
+    
+    --border: 0 0% 88%;                 /* Light borders */
+    --input: 0 0% 96%;
+    
+    /* Custom Portfolio Colors - Light Theme with Neon Green Accent */
+    --portfolio-bg: 0 0% 99%;           /* Very light background */
+    --portfolio-card: 0 0% 100%;        /* Pure white card backgrounds */
+    --portfolio-text: 0 0% 8%;          /* Almost black text for readability */
+    --portfolio-text-muted: 0 0% 45%;   /* Medium gray muted text */
+    
+    /* Gradients - Light Theme with subtle neon accents */
+    --gradient-primary: linear-gradient(135deg, hsl(107 89% 68%) 0%, hsl(112 92% 72%) 50%, hsl(102 86% 64%) 100%);
+    --gradient-card: linear-gradient(135deg, hsl(0 0% 100%) 0%, hsl(0 0% 98%) 100%);
+    --gradient-purple-bg: radial-gradient(ellipse at top, hsl(0 0% 99%) 0%, hsl(0 0% 97%) 100%);
+    --gradient-purple-overlay: radial-gradient(ellipse at 30% 20%, hsl(107 89% 68% / 0.08) 0%, transparent 60%);
+    
+    /* Shadows - Light Theme with subtle depth */
+    --shadow-elegant: 0 10px 40px -10px hsl(107 89% 68% / 0.15);
+    --shadow-card: 0 4px 20px -4px hsl(0 0% 0% / 0.08), 0 1px 3px hsl(0 0% 0% / 0.06);
+    --shadow-glow: 0 0 30px hsl(107 89% 68% / 0.2);
+  }
+}
+
+/* Theme Toggle Button Styles - From Uiverse.io by rishichawda */
+#theme-toggle-button {
+  font-size: 17px;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+/* Hide default HTML checkbox */
+#toggle,
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+#container,
+#patches,
+#stars,
+#button,
+#sun,
+#moon,
+#cloud {
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 0.25s;
+}
+
+/* night sky background */
+#toggle:checked + svg #container {
+  fill: #2b4360;
+}
+
+/* move button to right when checked */
+#toggle:checked + svg #button {
+  transform: translate(28px, 2.333px);
+}
+
+/* show/hide sun and moon based on checkbox state */
+#sun {
+  opacity: 1;
+}
+
+#toggle:checked + svg #sun {
+  opacity: 0;
+}
+
+#moon {
+  opacity: 0;
+}
+
+#toggle:checked + svg #moon {
+  opacity: 1;
+}
+
+/* show or hide background items on checkbox state */
+#cloud {
+  opacity: 1;
+}
+
+#toggle:checked + svg #cloud {
+  opacity: 0;
+}
+
+#stars {
+  opacity: 0;
+}
+
+#toggle:checked + svg #stars {
+  opacity: 1;
+}
+
+/* Mobile toggle checkbox - using attribute selector to avoid conflicts */
+label[id="theme-toggle-button"] #toggle-mobile {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+label[id="theme-toggle-button"] #toggle-mobile:checked + svg #container-m,
+label[id="theme-toggle-button"] #toggle-mobile:checked + svg g[id="container-m"] rect {
+  fill: #2b4360;
+}
+
+label[id="theme-toggle-button"] #toggle-mobile:checked + svg #button-m {
+  transform: translate(28px, 2.333px);
+}
+
+label[id="theme-toggle-button"] #sun-m {
+  opacity: 1;
+}
+
+label[id="theme-toggle-button"] #toggle-mobile:checked + svg #sun-m {
+  opacity: 0;
+}
+
+label[id="theme-toggle-button"] #moon-m {
+  opacity: 0;
+}
+
+label[id="theme-toggle-button"] #toggle-mobile:checked + svg #moon-m {
+  opacity: 1;
+}
+
+label[id="theme-toggle-button"] #cloud-m {
+  opacity: 1;
+}
+
+label[id="theme-toggle-button"] #toggle-mobile:checked + svg #cloud-m {
+  opacity: 0;
+}
+
+label[id="theme-toggle-button"] #stars-m {
+  opacity: 0;
+}
+
+label[id="theme-toggle-button"] #toggle-mobile:checked + svg #stars-m {
+  opacity: 1;
+}
